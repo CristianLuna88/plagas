@@ -1,0 +1,37 @@
+import Elementos.*
+import Plagas.*
+import Barrios.*
+
+describe "barrio y elemento" {
+
+	const hogarB = new Hogar(nivelDeMugre = 5, confort = 12)
+	const hogarM = new Hogar(nivelDeMugre = 7, confort = 12)
+	const huertaB = new Huerta(capacidadDeProduccion = 15)
+	const huertaM = new Huerta(capacidadDeProduccion = 9)
+	const mascotaB = new Mascota(nivelDeSalud = 260)
+	const mascotaM = new Mascota(nivelDeSalud = 240)
+
+	fixture {
+		nivel.valor(10)
+	}
+
+	test "barrio es bueno" {
+		const barrio = new Barrio(elementos = [ hogarB, huertaB, mascotaB, huertaM, mascotaM ])
+		assert.that(barrio.esCopado())
+	}
+
+	test "barrio no es bueno" {
+		const barrio = new Barrio(elementos = [ hogarM, huertaB, mascotaB, huertaM, mascotaM ])
+		assert.notThat(barrio.esCopado())
+	}
+
+	test "elemento es bueno" {
+		assert.that(hogarB.esBueno())
+	}
+
+	test "elemento no es bueno" {
+		assert.notThat(hogarM.esBueno())
+	}
+
+}
+
