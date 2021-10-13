@@ -28,7 +28,7 @@ class Garrapata inherits Pulga {
 
 }
 
-class Mosquitos inherits Plaga {
+class Mosquito inherits Plaga {
 
 	override method transmiteEnfermedad() = super() and poblacion % 3 == 0
 
