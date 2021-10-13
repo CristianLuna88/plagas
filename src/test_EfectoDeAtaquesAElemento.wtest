@@ -1,0 +1,34 @@
+import Elementos.*
+import Plagas.*
+import Barrios.*
+
+describe "ataque de pulgas pob=40 a huerta con capacidad De Produccion = 100" {
+
+	const pulgas = new Pulga(poblacion = 40)
+	const huerta = new Huerta(capacidadDeProduccion = 100)
+
+	fixture {
+		huerta.efectoDeAtaqueDe(pulgas)
+	}
+
+	test "efecto de ataque" {
+		assert.equals(82, huerta.capacidadDeProduccion())
+	}
+
+}
+
+describe "ataque de cucarachas pob=8 peso prom=8 a huerta con capacidad De Produccion = 100" {
+
+	const cucharachas = new Cucaracha(poblacion = 8, pesoPromedio = 8)
+	const huerta = new Huerta(capacidadDeProduccion = 100)
+
+	fixture {
+		huerta.efectoDeAtaqueDe(cucharachas)
+	}
+
+	test "efecto de ataque" {
+		assert.equals(99.6, huerta.capacidadDeProduccion())
+	}
+
+}
+
