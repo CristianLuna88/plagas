@@ -23,9 +23,9 @@ object nivel {
 
 class Mascota {
 
-	var property nivlDeSalud = 0
+	var property nivelDeSalud = 0
 
-	method esBueno() = nivlDeSalud > 250
+	method esBueno() = nivelDeSalud > 250
 
 }
 
