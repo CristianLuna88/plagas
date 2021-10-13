@@ -1,0 +1,30 @@
+import Plagas.*
+
+describe "garrapata pob=100" {
+
+	const garrapata = new Garrapata(poblacion = 100)
+
+	test "nivel de daño" {
+		assert.equals(200, garrapata.nivelDeDanio())
+	}
+
+	test "transmite enfermedad" {
+		assert.that(garrapata.transmiteEnfermedad())
+	}
+
+}
+
+describe "mosquito pob=100" {
+
+	const mosquito = new Mosquito(poblacion = 100)
+
+	test "nivel de daño" {
+		assert.equals(100, mosquito.nivelDeDanio())
+	}
+
+	test "no transmite enfermedad" {
+		assert.notThat(mosquito.transmiteEnfermedad())
+	}
+
+}
+
