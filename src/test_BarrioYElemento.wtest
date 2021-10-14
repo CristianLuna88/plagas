@@ -11,7 +11,7 @@ describe "barrio y elemento" {
 	const mascotaB = new Mascota(nivelDeSalud = 260)
 	const mascotaM = new Mascota(nivelDeSalud = 240)
 
-	fixture {
+	method initialize() {
 		nivel.valor(10)
 	}
 

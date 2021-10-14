@@ -7,7 +7,7 @@ describe "ataque de pulgas pob=40 a huerta con capacidad De Produccion = 100" {
 	const pulgas = new Pulga(poblacion = 40)
 	const huerta = new Huerta(capacidadDeProduccion = 100)
 
-	fixture {
+	method initialize() {
 		huerta.efectoDeAtaqueDe(pulgas)
 	}
 
@@ -22,7 +22,7 @@ describe "ataque de cucarachas pob=8 peso prom=8 a huerta con capacidad De Produ
 	const cucharachas = new Cucaracha(poblacion = 8, pesoPromedio = 8)
 	const huerta = new Huerta(capacidadDeProduccion = 100)
 
-	fixture {
+	method initialize(){
 		huerta.efectoDeAtaqueDe(cucharachas)
 	}
 
