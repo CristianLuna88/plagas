@@ -18,10 +18,16 @@ class Huerta {
 	method esBueno() = capacidadDeProduccion > nivel.valor()
 
 	method efectoDeAtaqueDe(unaPlaga) {
-		capacidadDeProduccion -= (unaPlaga.nivelDeDanio() * 0.1) + if(unaPlaga.transmiteEnfermedad()) 10 else 0
+		capacidadDeProduccion -= 0.max(capacidadDeProduccion - porcentaje.queResta(unaPlaga))
+							//-= (unaPlaga.nivelDeDanio() * 0.1) + if(unaPlaga.transmiteEnfermedad()) 10 else 0
 	}
 
 }
+
+ object porcentaje {  
+ 	method queResta(unaPlaga) = unaPlaga.nivelDeDanio() * 0.1 + if(unaPlaga.transmiteEnfermedad()) 10 else 0
+ 
+ }
 
 object nivel {
 
@@ -37,7 +43,7 @@ class Mascota {
 
 	method efectoDeAtaqueDe(unaPlaga) {
 		if (unaPlaga.transmiteEnfermedad()) {
-			nivelDeSalud -= unaPlaga.nivelDeDanio()
+			nivelDeSalud -= 0.max(nivelDeSalud - unaPlaga.nivelDeDanio())
 		}
 	}
 
