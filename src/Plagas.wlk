@@ -10,16 +10,16 @@ class Plaga {
 
 	method efectoDeAtaqueA(unElemento) {
 		unElemento.efectoDeAtaqueDe(self)
-		poblacion *= self.porcentaje()
+		poblacion *= self.porcentajeDeAumentoDePoblecion()
 	}
-	
-	method porcentaje() = aumentoDePoblacionTrasAtaque.porcentaje()
+
+	method porcentajeDeAumentoDePoblecion() = aumentoDePoblacion.porcentajeDeAumento()
 
 }
 
-object aumentoDePoblacionTrasAtaque {
+object aumentoDePoblacion {
 
-	method porcentaje() = 1.1
+	method porcentajeDeAumento() = 1.1
 
 }
 
@@ -30,13 +30,12 @@ class Cucaracha inherits Plaga {
 	override method nivelDeDanio() = super() / 2
 
 	override method transmiteEnfermedad() = super() and pesoPromedio >= 10
-	
+
 	override method efectoDeAtaqueA(unElemento) {
 		super(unElemento)
 		pesoPromedio += 2
-		
 	}
-	
+
 }
 
 class Pulga inherits Plaga {
@@ -46,7 +45,9 @@ class Pulga inherits Plaga {
 }
 
 class Garrapata inherits Pulga {
-		override method porcentaje() = 1.2
+
+	override method porcentajeDeAumentoDePoblecion() = 1.2
+
 }
 
 class Mosquito inherits Plaga {
